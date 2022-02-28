@@ -18,7 +18,7 @@ def find_devices():
         connected_devices.append(device[0])
   return connected_devices
 
-def send_notification_email(message):
+def send_email(message):
   server=smtplib. SMTP ('smtp.gmail.com',587) 
   server.starttls()
   server.login('Your_email', 'Your_emails_password')
@@ -39,7 +39,7 @@ def activate_listener():
           msg = """
               Subject: <Connected devices at Home>\n
               Connected devices:"""+str(devices)+"""\n"""   
-          send_notification_email(msg)
+          send_email(msg)
         time.sleep(3600)
 
 def main():
